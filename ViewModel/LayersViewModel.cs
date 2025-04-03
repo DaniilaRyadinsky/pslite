@@ -1,19 +1,26 @@
 ﻿using ImageLinker2.Models;
-using System;
-using System.Collections.Generic;
+using Microsoft.UI.Xaml;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Reflection.Metadata.BlobBuilder;
 namespace ImageLinker2.ViewModel
 {
-    public class LayersViewModel : INotifyPropertyChanged
+    public class LayersViewModel : BaseViewModel
     {
+        private Visibility _Visibility = Visibility.Visible;
+        public Visibility Visibility
+        {
+            get => _Visibility;
+            set
+            {
+                if (_Visibility != value)
+                {
+                    _Visibility = value;
+                    OnPropertyChanged(nameof(Visibility));
+                }
+            }
+        }
+
         private ObservableCollection<ImageLayer> _layers;
         public ObservableCollection<ImageLayer> layers
         {
@@ -21,13 +28,12 @@ namespace ImageLinker2.ViewModel
             set
             {
                 _layers = value;
-                OnPropertyChanged(nameof(ImageLayer));
+                OnPropertyChanged(nameof(layers));
             }
         }
 
         public LayersViewModel()
         {
-            //_layerModel = new ViewLayers();
             _layers = new ObservableCollection<ImageLayer>();
             layers = new ObservableCollection<ImageLayer>();
         }
@@ -45,7 +51,9 @@ namespace ImageLinker2.ViewModel
 
         public ImageLayer GetLayer(int index)
         {
-            return _layers[index];
+            if (index < layers.Count)
+                return layers[index];
+            return null;
         }
 
         public int Count()
@@ -53,11 +61,5 @@ namespace ImageLinker2.ViewModel
             return _layers.Count;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

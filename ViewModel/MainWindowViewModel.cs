@@ -2,37 +2,37 @@
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Windows.Graphics.Imaging;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using ImageLinker2.Models;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ImageLinker2.ViewModel
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
-        public LayersViewModel LayersVM { get; }
-        public ViewPortViewModel ViewPortVM { get; }
+        public LayersViewModel LayersVM;
+        public ViewPortViewModel ViewPortVM;
+        public CurviesViewModel CurviesVM;
 
-        private SoftwareBitmapSource? _viewportSource;
-        public SoftwareBitmapSource? ViewportSource
-        {
-            get { return _viewportSource; }
-            set
-            {
-                _viewportSource = value;
-                OnPropertyChanged(nameof(ViewportSource));
-            }
-        }
+        //private SoftwareBitmapSource? _viewportSource;
+        //public SoftwareBitmapSource? ViewportSource
+        //{
+        //    get { return _viewportSource; }
+        //    set
+        //    {
+        //        _viewportSource = value;
+        //        OnPropertyChanged(nameof(ViewportSource));
+        //    }
+        //}
 
-        private string _text;
-        public string Text
+        private string? _text;
+        public string? Text
         {
             get { return _text; }
             set
@@ -43,12 +43,14 @@ namespace ImageLinker2.ViewModel
         }
 
 
-        public MainWindowViewModel(LayersViewModel _LayersVM)
+        public MainWindowViewModel()
         {
-            LayersVM = _LayersVM;
+            LayersVM = new();
             ViewPortVM = new ViewPortViewModel();
-            _viewportSource = new();
-            ViewportSource = new();
+            //ViewPortVM = new ViewPortViewModel(ViewportSource);
+            CurviesVM = new CurviesViewModel(ViewPortVM);
+            //_viewportSource = new();
+            //ViewportSource = new();
         }
 
         public async void PickAFileButton_Click(object sender, RoutedEventArgs e)
@@ -85,7 +87,7 @@ namespace ImageLinker2.ViewModel
             if (file != null)
             {
                 Text = "Picked file: " + file.Name;
-                await image_Load(file);
+                await Image_Load(file);
             }
             else
             {
@@ -96,7 +98,7 @@ namespace ImageLinker2.ViewModel
             senderButton.IsEnabled = true;
         }
 
-        async Task image_Load(StorageFile? file)
+        async Task Image_Load(StorageFile? file)
         {
             using var stream = await file.OpenAsync(FileAccessMode.Read);
             BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
@@ -112,34 +114,58 @@ namespace ImageLinker2.ViewModel
 
         public async void Render()
         {
-            ViewPortVM.RenderLayers(LayersVM);
+            ViewPortVM.Render(LayersVM);
 
-            ViewportSource = null;
-            SoftwareBitmapSource sourse = new();
-            await sourse.SetBitmapAsync(ViewPortVM.View);
-            ViewportSource = sourse;
+
+            if (ViewPortVM.View != null)
+                CurviesVM.ViewReference = CopyWriteableBitmap(ViewPortVM.View);
+            else CurviesVM.ViewReference = null;
         }
 
         public void Delete(object sender, ImageLayer imageLayer)
         {
             LayersVM.Delete(sender, imageLayer);
-            if (LayersVM.Count() == 0)
-            {
-                ViewportSource?.Dispose();
-                _viewportSource?.Dispose();
-                ViewportSource = null;
-                ViewPortVM.Dispose();
-            }
-            else
+            if (LayersVM.Count() != 0)
                 Render();
-
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
+        public void RightPanel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var rb = sender as RadioButtons;
+            if (rb != null)
+            {
+                string selected = rb.SelectedItem as string;
+                switch (selected)
+                {
+                    case "Слои":
+                        LayersVM.Visibility = Visibility.Visible;
+                        CurviesVM.Visibility = Visibility.Collapsed;
+                        Render();
+                        break;
+                    case "Кривые":
+                        LayersVM.Visibility = Visibility.Collapsed;
+                        CurviesVM.Visibility = Visibility.Visible;
+                        CurviesVM.RenderViewPort();
+                        break;
+                    case "Чтото там":
+                        LayersVM.Visibility = Visibility.Collapsed;
+                        CurviesVM.Visibility = Visibility.Collapsed;
+                        break;
+                }
+            }
+        }
+
+        public static WriteableBitmap? CopyWriteableBitmap(WriteableBitmap? source)
+        {
+            if (source == null) return null;
+
+            var copy = new WriteableBitmap(source.PixelWidth, source.PixelHeight);
+            using (var srcStream = source.PixelBuffer.AsStream())
+            using (var destStream = copy.PixelBuffer.AsStream())
+            {
+                srcStream.CopyTo(destStream);
+            }
+            return copy;
         }
     }
 }

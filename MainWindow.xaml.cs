@@ -1,14 +1,4 @@
-using System;
-using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Windows.Storage.Pickers;
-using Microsoft.UI.Xaml.Media.Imaging;
-using Windows.Storage;
-using Windows.Graphics.Imaging;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using ImageLinker2.ViewModel;
 
 
@@ -24,18 +14,12 @@ namespace ImageLinker2
     public sealed partial class MainWindow : Window
     {
 
-        //public Layers layers;
-        //public ViewPort ViewPort;
-
         public MainWindowViewModel _viewModel;
-        public Layers layers;
 
         public MainWindow()
         {
             this.InitializeComponent();
-            layers = new Layers();
-            _viewModel = new MainWindowViewModel(layers._viewModel);
-            RightPanel.Children.Add(layers);
+            _viewModel = new MainWindowViewModel();
         }
 
     }

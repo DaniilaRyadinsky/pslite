@@ -1,20 +1,18 @@
 ﻿using ImageLinker2.Models;
-using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using Windows.Graphics.Imaging;
+
 
 namespace ImageLinker2.ViewModel
 {
-    public class ViewPortViewModel : INotifyPropertyChanged
+    public class ViewPortViewModel : BaseViewModel
     {
-        //private readonly ViewPort _viewPort = new();
-        private SoftwareBitmap? _view;
-        public SoftwareBitmap? View
+        private WriteableBitmap? _view;
+        public WriteableBitmap? View
         {
             get { return _view; }
             set
@@ -24,29 +22,16 @@ namespace ImageLinker2.ViewModel
             }
         }
 
-        public ViewPortViewModel()
-        {
-            //_view = new SoftwareBitmap(BitmapPixelFormat.Bgra8, 10, 10, BitmapAlphaMode.Premultiplied);
-            //View = new SoftwareBitmap(BitmapPixelFormat.Bgra8, 10, 10, BitmapAlphaMode.Premultiplied);
-        }
+        public ViewPortViewModel(){}
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
+        public async void Render(LayersViewModel LayersVM) // нужно еще подумать
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public async void RenderLayers(LayersViewModel LayersVM) // нужно еще подумать
-        {
-            if (_view == null)
+            if (View == null && LayersVM.Count() > 0)
             {
-                this.Dispose(); 
-                View = SoftwareBitmap.Copy(LayersVM.GetLayer(0).Referense);
+                View = await ViewPort.Copy(LayersVM.GetLayer(0).Referense);
             }
             else if (LayersVM.Count() != 0)
             {
-                this.Dispose(); 
                 var layer = LayersVM.GetLayer(0);
                 View = await ViewPort.UpdateViewPort(layer.Referense, layer.GetR(), layer.GetG(), layer.GetB(), layer.GetOpasity());
             }
@@ -57,12 +42,10 @@ namespace ImageLinker2.ViewModel
             }
         }
 
-        public void Dispose()
+        public async void Render(WriteableBitmap? ViewReference, Dictionary<int, int> map)
         {
-            _view?.Dispose();
-            _view = null;
-            View?.Dispose();
-            View = null;
+            View = await ViewPort.UpdateViewPort(ViewReference, map);
         }
+        
     }
 }

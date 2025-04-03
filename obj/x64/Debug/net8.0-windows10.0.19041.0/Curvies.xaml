@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:ConnectionId='1'
+    x:Class="ImageLinker2.Curvies"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImageLinker2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Name="root">
+
+    <RelativePanel x:ConnectionId='2'                                                        >
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0">
+            <Border Width="258" Height="258" BorderBrush="Gray" BorderThickness="1">
+                <Image x:ConnectionId='4' x:Name="Thumbnail" Stretch="Fill"                                                         />
+            </Border>
+        </StackPanel>
+        <StackPanel>
+            <Canvas x:ConnectionId='3' x:Name="CurveView" 
+                                                                              
+                                                                         
+                                                                               
+                    Height="258" Width="258" Background="Transparent" ZIndex="2"/>
+        </StackPanel>
+    </RelativePanel>
+</UserControl>
+

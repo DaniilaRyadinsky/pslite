@@ -16,6 +16,7 @@
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
+            <local:VisibilityToBooleanConverter x:Key="VisibilityToBooleanConverter" />
         </ResourceDictionary>
 
     </Application.Resources>

@@ -8,13 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using ImageLinker2.ViewModel;
+using Windows.Foundation;
 
 namespace ImageLinker2.Models
 {
     public static class ViewPort
     {
 
-        public static async Task<SoftwareBitmap?> UpdateViewPort(SoftwareBitmap? bitmap, byte R, byte G, byte B, double Opasity)
+        public static async Task<WriteableBitmap?> Copy(SoftwareBitmap? bitmap)
+        {
+            WriteableBitmap resultBitmap = new(bitmap.PixelWidth, bitmap.PixelHeight);
+
+            using Stream stream = resultBitmap.PixelBuffer.AsStream();
+
+            byte[] pixels = new byte[bitmap.PixelWidth * bitmap.PixelHeight * 4];
+            bitmap.CopyToBuffer(pixels.AsBuffer());
+
+            await stream.WriteAsync(pixels, 0, pixels.Length);
+            resultBitmap.Invalidate();
+
+            return resultBitmap;
+        }
+
+        public static async Task<WriteableBitmap?> UpdateViewPort(SoftwareBitmap? bitmap, byte R, byte G, byte B, double Opasity)
         {
             if (bitmap != null)
             {
@@ -38,19 +54,14 @@ namespace ImageLinker2.Models
                     resultPixels[i + 3] = 255; // Alpha (оставляем непрозрачным)
                 }
                 await stream.WriteAsync(resultPixels, 0, resultPixels.Length);
+                resultBitmap.Invalidate();
 
-                return SoftwareBitmap.CreateCopyFromBuffer(
-                    resultBitmap.PixelBuffer,
-                    BitmapPixelFormat.Bgra8,
-                    resultBitmap.PixelWidth,
-                    resultBitmap.PixelHeight,
-                    BitmapAlphaMode.Premultiplied
-                );
+                return resultBitmap;
             }
             return null;
         }
 
-        public static async Task<SoftwareBitmap?> BuildViewPort(SoftwareBitmap? bitmap1, SoftwareBitmap? bitmap2, string Mode, byte R, byte G, byte B, double Opasity)
+        public static async Task<WriteableBitmap?> BuildViewPort(WriteableBitmap? bitmap1, SoftwareBitmap? bitmap2, string Mode, byte R, byte G, byte B, double Opasity)
         {
             if (bitmap1 != null && bitmap2 != null)
             {
@@ -64,13 +75,15 @@ namespace ImageLinker2.Models
 
                 WriteableBitmap resultBitmap = new(width, height);
 
-                using Stream stream = resultBitmap.PixelBuffer.AsStream();
+                using Stream resultStream = resultBitmap.PixelBuffer.AsStream();
 
                 byte[] pixels1 = new byte[width * height * 4];
                 byte[] pixels2 = new byte[width * height * 4];
                 byte[] resultPixels = new byte[width * height * 4];
 
-                bitmap1.CopyToBuffer(pixels1.AsBuffer());
+                using var stream = bitmap1.PixelBuffer.AsStream();
+                await stream.ReadAsync(pixels1, 0, pixels1.Length);
+
                 bitmap2.CopyToBuffer(pixels2.AsBuffer());
 
                 //for (int y = 0; y < height; y++)
@@ -94,24 +107,24 @@ namespace ImageLinker2.Models
                         switch (Mode)
                         {
                             case "Sum":
-                                rResult = (byte)((r1 + r2 * R * Opasity) % 255);
-                                gResult = (byte)((g1 + g2 * G * Opasity) % 255);
-                                bResult = (byte)((b1 + b2 * B * Opasity) % 255);
+                                rResult = (byte)(r1 + r2 * R * Opasity);
+                                gResult = (byte)(g1 + g2 * G * Opasity);
+                                bResult = (byte)(b1 + b2 * B * Opasity);
                                 break;
                             case "Dif":
-                                rResult = (byte)((r1 - r2 * R * Opasity) % 255);
-                                gResult = (byte)((g1 - g2 * G * Opasity) % 255);
-                                bResult = (byte)((b1 - b2 * B * Opasity) % 255);
+                                rResult = (byte)(r1 - r2 * R * Opasity);
+                                gResult = (byte)(g1 - g2 * G * Opasity);
+                                bResult = (byte)(b1 - b2 * B * Opasity);
                                 break;
                             case "Multy":
-                                rResult = (byte)(r1 * r2 * R * Opasity % 255);
-                                gResult = (byte)(g1 * g2 * G * Opasity % 255);
-                                bResult = (byte)(b1 * b2 * B * Opasity % 255);
+                                rResult = (byte)(r1 * r2 * R * Opasity);
+                                gResult = (byte)(g1 * g2 * G * Opasity);
+                                bResult = (byte)(b1 * b2 * B * Opasity);
                                 break;
                             default:
-                                rResult = (byte)(r2 * R * Opasity);
-                                gResult = (byte)(g2 * G * Opasity);
-                                bResult = (byte)(b2 * B * Opasity);
+                                rResult = (byte)Clamp((int)(r1 + r2 * R * Opasity));
+                                gResult = (byte)Clamp((int)(g1 + g2 * G * Opasity));
+                                bResult = (byte)Clamp((int)(b1 + b2 * B * Opasity));
                                 break;
                         }
                         resultPixels[index] = bResult;
@@ -121,21 +134,55 @@ namespace ImageLinker2.Models
                     }
                 });
 
-                await stream.WriteAsync(resultPixels, 0, resultPixels.Length);
+                await resultStream.WriteAsync(resultPixels, 0, resultPixels.Length);
 
-                //bitmap1?.Dispose();
-                //bitmap1 = null;
-
-                return SoftwareBitmap.CreateCopyFromBuffer(
-                    resultBitmap.PixelBuffer,
-                    BitmapPixelFormat.Bgra8,
-                    resultBitmap.PixelWidth,
-                    resultBitmap.PixelHeight,
-                    BitmapAlphaMode.Premultiplied
-                );
+                resultBitmap.Invalidate();
+                return resultBitmap;
             }
             return null;
-            
+
+        }
+
+        public static async Task<WriteableBitmap?> UpdateViewPort(WriteableBitmap? bitmap, Dictionary<int, int> map)
+        {
+            if (bitmap != null)
+            {
+                var widthBitmap = bitmap.PixelWidth;
+                var heightBitmap = bitmap.PixelHeight;
+
+                WriteableBitmap resultBitmap = new(widthBitmap, heightBitmap);
+
+                using Stream resultStream = resultBitmap.PixelBuffer.AsStream();
+
+                byte[] pixels = new byte[widthBitmap * heightBitmap * 4];
+                byte[] resultPixels = new byte[widthBitmap * heightBitmap * 4];
+                using (var stream = bitmap.PixelBuffer.AsStream())
+                {
+                    await stream.ReadAsync(pixels, 0, pixels.Length);
+                }
+
+                for (int i = 0; i < pixels.Length; i += 4)
+                {
+
+                    resultPixels[i] = (byte)(map[pixels[i]]);
+                    resultPixels[i + 1] = (byte)(map[pixels[i + 1]]);
+                    resultPixels[i + 2] = (byte)(map[pixels[i + 2]]); // R
+                    resultPixels[i + 3] = 255; // Alpha (оставляем непрозрачным)
+                }
+                await resultStream.WriteAsync(resultPixels, 0, resultPixels.Length);
+
+                resultBitmap.Invalidate();
+
+                return resultBitmap;
+            }
+            return null;
+        }
+
+
+        static int Clamp(int value)
+        {
+            // Ограничьте значение от 0 до 255
+            return Math.Max(0, Math.Min(255, value));
         }
 
         private static byte GetPixelValue(byte[] pixels, int width, int x, int y, int channel)

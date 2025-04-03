@@ -1,1 +1,1 @@
-C:\Users\dikij\Документы\study fuck\сцои\ImageLinker2\ImageLinker2.csproj;x64
+C:\Users\dikij\Документы\study fuck\сцои\pslite\ImageLinker2.csproj;x64

@@ -27,7 +27,7 @@ namespace ImageLinker2.Models
         public SoftwareBitmap? Referense;
         private SoftwareBitmap? Icon;
 
-        public string Text
+        public string? Text
         {
             get => (string)GetValue(TextProperty);
             set { SetValue(TextProperty, value); NotifyPropertyChanged(); }
@@ -43,8 +43,8 @@ namespace ImageLinker2.Models
             }
         }
 
-        public event EventHandler<ImageLayer> DeleteRequested;
-        public event Action RenderRequested;
+        public event EventHandler<ImageLayer>? DeleteRequested;
+        public event Action? RenderRequested;
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
         nameof(Text),
@@ -88,7 +88,7 @@ namespace ImageLinker2.Models
 
         public double GetOpasity() { return Opasity; }
 
-        public string GetMode() { return Mode; }
+        public string? GetMode() { return Mode; }
 
         public SoftwareBitmap? GetReferense() { return Referense; }
 
@@ -152,20 +152,14 @@ namespace ImageLinker2.Models
             }
         }
 
-        static int Clamp(int value)
-        {
-            // Ограничьте значение от 0 до 255
-            return Math.Max(0, Math.Min(255, value));
-        }
 
 
-
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        private void NotifyPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
 
         protected override void OnApplyTemplate()

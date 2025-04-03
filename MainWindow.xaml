@@ -22,19 +22,20 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment='Center' Margin="20, 20, 20, 20">
-            <Image x:Name="pictureBox1" Source="{x:Bind _viewModel.ViewportSource, Mode=OneWay}"/>
+            <Image x:Name="pictureBox1" Source="{x:Bind _viewModel.ViewPortVM.View, Mode=OneWay}"/>
         </StackPanel>
 
-        <StackPanel  Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment='Top'>
-            <RadioButtons Header="Options:">
-                <!--<RadioButton Content="Option 1" Checked="RadioButton_Checked"/>
-                <RadioButton Content="Option 2" Checked="RadioButton_Checked"/>
-                <RadioButton Content="Option 3" Checked="RadioButton_Checked"/>-->
+        <StackPanel  Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment='Top' Margin="15">
+            <RadioButtons SelectedIndex="0" MaxColumns="5" SelectionChanged="{x:Bind _viewModel.RightPanel_SelectionChanged}">
+                <x:String>Слои</x:String>
+                <x:String>Кривые</x:String>
+                <x:String>Чтото там</x:String>
             </RadioButtons>
         </StackPanel>
 
         <RelativePanel x:Name="RightPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-            
+            <local:Layers x:Name="LayersControl" ViewModel="{x:Bind _viewModel.LayersVM, Mode=OneWay}"/>
+            <local:Curvies x:Name="CurviesControl" ViewModel="{x:Bind _viewModel.CurviesVM, Mode=OneWay}"/>
         </RelativePanel>
 
 

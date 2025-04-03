@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\dikij\Документы\study fuck\сцои\pslite\bin\x64\Debug\net8.0-windows10.0.19041.0\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-03T20:06:28.614</Modified>
+      <Modified>2025-04-03T21:41:14.179</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dikij\Документы\study fuck\сцои\pslite\bin\x64\Debug\net8.0-windows10.0.19041.0\ImageLinker2.dll">
       <PackagePath>ImageLinker2.dll</PackagePath>
-      <Modified>2025-04-03T20:06:28.179</Modified>
+      <Modified>2025-04-03T21:41:14.023</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\apphost.exe">
       <PackagePath>ImageLinker2.exe</PackagePath>
-      <Modified>2025-04-03T20:06:28.244</Modified>
+      <Modified>2025-04-03T21:41:14.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dikij\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

@@ -26,14 +26,15 @@ namespace ImageLinker2.ViewModel
 
         public async void Render(LayersViewModel LayersVM) // нужно еще подумать
         {
-            if (View == null && LayersVM.Count() > 0)
+            if (LayersVM.Count() > 0)
             {
-                View = await ViewPort.Copy(LayersVM.GetLayer(0).Referense);
-            }
-            else if (LayersVM.Count() != 0)
-            {
-                var layer = LayersVM.GetLayer(0);
-                View = await ViewPort.UpdateViewPort(layer.Referense, layer.GetR(), layer.GetG(), layer.GetB(), layer.GetOpasity());
+                if (View== null)
+                    View = await ViewPort.Copy(LayersVM.GetLayer(0).Referense);
+                else
+                {
+                    var layer = LayersVM.GetLayer(0);
+                    View = await ViewPort.UpdateViewPort(layer.Referense, layer.GetR(), layer.GetG(), layer.GetB(), layer.GetOpasity());
+                }
             }
             for (var i = 1; i < LayersVM.Count(); i++)
             {

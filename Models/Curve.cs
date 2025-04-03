@@ -1,25 +1,22 @@
 ﻿using Microsoft.UI.Xaml.Media.Imaging;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.Graphics.Imaging;
 
 namespace ImageLinker2.Models
 {
     public static class Curve
     {
+        const int HistogramWidth = 256;
+        const int HistogramHeight = 256;
 
         public async static Task<WriteableBitmap?> MakeHistogram(WriteableBitmap? View)
         {
             if (View != null)
             {
-                int HistogramWidth = 256;
-                int HistogramHeight = 256;
                 int[] brightness = await CalculateBrightness(View, HistogramHeight);
 
                 WriteableBitmap resultBitmap = new(HistogramWidth, HistogramHeight);
@@ -102,7 +99,7 @@ namespace ImageLinker2.Models
 
                 for (int x = (int)p1.X; x <= (int)p2.X; x++)
                 {
-                    map[x] = (int)((255-p1.Y) + ((255 -p2.Y) - (255-p1.Y)) / (p2.X - p1.X) * (x - p1.X)); // f(x0) + (f(x1) - f(x0))/(x1 - x0) * (x - x0)
+                    map[x] = (int)((255 - p1.Y) + ((255 - p2.Y) - (255 - p1.Y)) / (p2.X - p1.X) * (x - p1.X)); // f(x0) + (f(x1) - f(x0))/(x1 - x0) * (x - x0)
                 }
             }
             return map;

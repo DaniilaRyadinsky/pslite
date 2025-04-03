@@ -46,7 +46,7 @@ namespace ImageLinker2.ViewModel
         }
 
         private List<Point> _Points;
-        public List<Point> Points
+        private List<Point> Points
         {
             get => _Points;
             set
@@ -62,7 +62,6 @@ namespace ImageLinker2.ViewModel
         public WriteableBitmap? ViewReference;
         public ViewPortViewModel ViewPortVM;
 
-        private UIElementCollection CanvasChildren;
         private Canvas _curveViewCanvas;
         public Canvas CurveViewCanvas
         {
@@ -71,11 +70,7 @@ namespace ImageLinker2.ViewModel
             {
                 _curveViewCanvas = value;
                 OnPropertyChanged(nameof(CurveViewCanvas));
-                if (_curveViewCanvas != null)
-                {
-                    CanvasChildren = _curveViewCanvas.Children;
-                    DrawCurvies();
-                }
+                if (_curveViewCanvas != null) DrawCurvies();
             }
         }
 
@@ -90,11 +85,11 @@ namespace ImageLinker2.ViewModel
             ViewPortVM = viewPortVM;
         }
 
-        public async void RenderHistogram(WriteableBitmap? ViewSource)
+        private async void RenderHistogram(WriteableBitmap? ViewSource)
         {
             var writableBitmap = await Curve.MakeHistogram(ViewSource);
             HistogramSource = writableBitmap;
-
+            
         }
 
         public void Canvas_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -175,14 +170,14 @@ namespace ImageLinker2.ViewModel
             return null;
         }
 
-        public void RemovePoint(Point point)
+        private void RemovePoint(Point point)
         {
             int? index = FindPoint(point);
             if (index != null)
                 Points.RemoveAt((int)index);
         }
 
-        public int? FindPoint(Point point)
+        private int? FindPoint(Point point)
         {
             for (int i = 1; i < Points.Count-1; i++)
             {
@@ -194,9 +189,9 @@ namespace ImageLinker2.ViewModel
             return null;
         }
 
-        public void DrawCurvies()
+        private void DrawCurvies()
         {
-            CanvasChildren.Clear();
+            CurveViewCanvas.Children.Clear();
             Points.Sort((a, b) => a.X.CompareTo(b.X));
             var point1 = Points[0];
             Rectangle rec = new()

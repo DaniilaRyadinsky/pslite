@@ -2,13 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
-using ImageLinker2.ViewModel;
-using Windows.Foundation;
+
+
 
 namespace ImageLinker2.Models
 {
@@ -45,14 +43,18 @@ namespace ImageLinker2.Models
                 byte[] resultPixels = new byte[widthBitmap * heightBitmap * 4];
                 bitmap.CopyToBuffer(pixels.AsBuffer());
 
-                for (int i = 0; i < pixels.Length; i += 4)
+                Parallel.For(0, heightBitmap, y =>
                 {
+                    for (int x = 0; x < widthBitmap; x++)
+                    {
+                        int index = (y * widthBitmap + x) * 4;
 
-                    resultPixels[i] = (byte)(pixels[i] * B * Opasity);       // B
-                    resultPixels[i + 1] = (byte)(pixels[i + 1] * G * Opasity); // G
-                    resultPixels[i + 2] = (byte)(pixels[i + 2] * R * Opasity); // R
-                    resultPixels[i + 3] = 255; // Alpha (оставляем непрозрачным)
-                }
+                        resultPixels[index] = (byte)(pixels[index] * B * Opasity);       // B
+                        resultPixels[index + 1] = (byte)(pixels[index + 1] * G * Opasity); // G
+                        resultPixels[index + 2] = (byte)(pixels[index + 2] * R * Opasity); // R
+                        resultPixels[index + 3] = 255; // Alpha (оставляем непрозрачным)
+                    }
+                });
                 await stream.WriteAsync(resultPixels, 0, resultPixels.Length);
                 resultBitmap.Invalidate();
 
@@ -161,14 +163,19 @@ namespace ImageLinker2.Models
                     await stream.ReadAsync(pixels, 0, pixels.Length);
                 }
 
-                for (int i = 0; i < pixels.Length; i += 4)
+                Parallel.For(0, heightBitmap, y =>
                 {
+                    for (int x = 0; x < widthBitmap; x++)
+                    {
+                        int index = (y * widthBitmap + x) * 4;
 
-                    resultPixels[i] = (byte)(map[pixels[i]]);
-                    resultPixels[i + 1] = (byte)(map[pixels[i + 1]]);
-                    resultPixels[i + 2] = (byte)(map[pixels[i + 2]]); // R
-                    resultPixels[i + 3] = 255; // Alpha (оставляем непрозрачным)
-                }
+                        resultPixels[index] = (byte)(map[pixels[index]]);
+                        resultPixels[index + 1] = (byte)(map[pixels[index + 1]]);
+                        resultPixels[index + 2] = (byte)(map[pixels[index + 2]]); // R
+                        resultPixels[index + 3] = 255; // Alpha (оставляем непрозрачным)
+                    }
+                });
+
                 await resultStream.WriteAsync(resultPixels, 0, resultPixels.Length);
 
                 resultBitmap.Invalidate();
@@ -181,7 +188,6 @@ namespace ImageLinker2.Models
 
         static int Clamp(int value)
         {
-            // Ограничьте значение от 0 до 255
             return Math.Max(0, Math.Min(255, value));
         }
 

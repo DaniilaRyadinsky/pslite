@@ -8,8 +8,6 @@ using Windows.Graphics.Imaging;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using ImageLinker2.Models;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ImageLinker2.ViewModel
@@ -19,17 +17,6 @@ namespace ImageLinker2.ViewModel
         public LayersViewModel LayersVM;
         public ViewPortViewModel ViewPortVM;
         public CurviesViewModel CurviesVM;
-
-        //private SoftwareBitmapSource? _viewportSource;
-        //public SoftwareBitmapSource? ViewportSource
-        //{
-        //    get { return _viewportSource; }
-        //    set
-        //    {
-        //        _viewportSource = value;
-        //        OnPropertyChanged(nameof(ViewportSource));
-        //    }
-        //}
 
         private string? _text;
         public string? Text
@@ -47,10 +34,7 @@ namespace ImageLinker2.ViewModel
         {
             LayersVM = new();
             ViewPortVM = new ViewPortViewModel();
-            //ViewPortVM = new ViewPortViewModel(ViewportSource);
             CurviesVM = new CurviesViewModel(ViewPortVM);
-            //_viewportSource = new();
-            //ViewportSource = new();
         }
 
         public async void PickAFileButton_Click(object sender, RoutedEventArgs e)
@@ -108,11 +92,10 @@ namespace ImageLinker2.ViewModel
 
             var imageLayer = new ImageLayer(displayableImage, file.Name, decoder, Delete, Render);
             LayersVM.Add(imageLayer);
-
             Render();
         }
 
-        public async void Render()
+        private async void Render()
         {
             ViewPortVM.Render(LayersVM);
 
@@ -127,6 +110,11 @@ namespace ImageLinker2.ViewModel
             LayersVM.Delete(sender, imageLayer);
             if (LayersVM.Count() != 0)
                 Render();
+            else
+            {
+                ViewPortVM.View = null;
+                CurviesVM.ViewReference = null;
+            }
         }
 
         public void RightPanel_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -155,7 +143,7 @@ namespace ImageLinker2.ViewModel
             }
         }
 
-        public static WriteableBitmap? CopyWriteableBitmap(WriteableBitmap? source)
+        private static WriteableBitmap? CopyWriteableBitmap(WriteableBitmap? source)
         {
             if (source == null) return null;
 

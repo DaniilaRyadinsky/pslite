@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImageLinker2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83b4d64123f496158a97f11afb495614ba17a21d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d017eaa12c9acaa5e28d6ba8a66f41efec0d2e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImageLinker2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImageLinker2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

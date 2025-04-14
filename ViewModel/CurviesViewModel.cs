@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
-using Windows.Graphics.Imaging;
 
 
 namespace ImageLinker2.ViewModel
@@ -89,7 +88,6 @@ namespace ImageLinker2.ViewModel
         {
             var writableBitmap = await Curve.MakeHistogram(ViewSource);
             HistogramSource = writableBitmap;
-            
         }
 
         public void Canvas_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -237,6 +235,5 @@ namespace ImageLinker2.ViewModel
             ViewPortVM.Render(ViewReference, map);
             RenderHistogram(ViewPortVM.View);
         }
-
     }
 }

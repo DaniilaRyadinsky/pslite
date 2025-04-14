@@ -226,57 +226,61 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[24];
+            _typeNameTable = new string[26];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
             _typeNameTable[4] = "ImageLinker2.VisibilityToBooleanConverter";
-            _typeNameTable[5] = "ImageLinker2.Curvies";
-            _typeNameTable[6] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[7] = "ImageLinker2.ViewModel.CurviesViewModel";
-            _typeNameTable[8] = "ImageLinker2.ViewModel.BaseViewModel";
-            _typeNameTable[9] = "ImageLinker2.Layers";
-            _typeNameTable[10] = "ImageLinker2.ViewModel.LayersViewModel";
-            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.RadioButtons";
-            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.Control";
-            _typeNameTable[13] = "System.Collections.Generic.IList`1<Object>";
-            _typeNameTable[14] = "Int32";
-            _typeNameTable[15] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[16] = "ImageLinker2.MainWindow";
-            _typeNameTable[17] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[18] = "ImageLinker2.Models.ImageLayer";
-            _typeNameTable[19] = "String";
-            _typeNameTable[20] = "Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource";
-            _typeNameTable[21] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[22] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[23] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[5] = "Microsoft.UI.Xaml.Controls.RadioButtons";
+            _typeNameTable[6] = "Microsoft.UI.Xaml.Controls.Control";
+            _typeNameTable[7] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[8] = "Int32";
+            _typeNameTable[9] = "Microsoft.UI.Xaml.DataTemplate";
+            _typeNameTable[10] = "ImageLinker2.Binarization";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[12] = "ImageLinker2.ViewModel.BinarizationViewModel";
+            _typeNameTable[13] = "ImageLinker2.ViewModel.BaseViewModel";
+            _typeNameTable[14] = "ImageLinker2.Curvies";
+            _typeNameTable[15] = "ImageLinker2.ViewModel.CurviesViewModel";
+            _typeNameTable[16] = "ImageLinker2.Layers";
+            _typeNameTable[17] = "ImageLinker2.ViewModel.LayersViewModel";
+            _typeNameTable[18] = "ImageLinker2.MainWindow";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[20] = "ImageLinker2.Models.ImageLayer";
+            _typeNameTable[21] = "String";
+            _typeNameTable[22] = "Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource";
+            _typeNameTable[23] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[24] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[25] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
 
-            _typeTable = new global::System.Type[24];
+            _typeTable = new global::System.Type[26];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
             _typeTable[4] = typeof(global::ImageLinker2.VisibilityToBooleanConverter);
-            _typeTable[5] = typeof(global::ImageLinker2.Curvies);
-            _typeTable[6] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[7] = typeof(global::ImageLinker2.ViewModel.CurviesViewModel);
-            _typeTable[8] = typeof(global::ImageLinker2.ViewModel.BaseViewModel);
-            _typeTable[9] = typeof(global::ImageLinker2.Layers);
-            _typeTable[10] = typeof(global::ImageLinker2.ViewModel.LayersViewModel);
-            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
-            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
-            _typeTable[13] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
-            _typeTable[14] = typeof(global::System.Int32);
-            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[16] = typeof(global::ImageLinker2.MainWindow);
-            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[18] = typeof(global::ImageLinker2.Models.ImageLayer);
-            _typeTable[19] = typeof(global::System.String);
-            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource);
-            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[23] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
+            _typeTable[6] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
+            _typeTable[7] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[8] = typeof(global::System.Int32);
+            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
+            _typeTable[10] = typeof(global::ImageLinker2.Binarization);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[12] = typeof(global::ImageLinker2.ViewModel.BinarizationViewModel);
+            _typeTable[13] = typeof(global::ImageLinker2.ViewModel.BaseViewModel);
+            _typeTable[14] = typeof(global::ImageLinker2.Curvies);
+            _typeTable[15] = typeof(global::ImageLinker2.ViewModel.CurviesViewModel);
+            _typeTable[16] = typeof(global::ImageLinker2.Layers);
+            _typeTable[17] = typeof(global::ImageLinker2.ViewModel.LayersViewModel);
+            _typeTable[18] = typeof(global::ImageLinker2.MainWindow);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[20] = typeof(global::ImageLinker2.Models.ImageLayer);
+            _typeTable[21] = typeof(global::System.String);
+            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource);
+            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[25] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -313,27 +317,30 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_VisibilityToBooleanConverter() { return new global::ImageLinker2.VisibilityToBooleanConverter(); }
-        private object Activate_5_Curvies() { return new global::ImageLinker2.Curvies(); }
-        private object Activate_8_BaseViewModel() { return new global::ImageLinker2.ViewModel.BaseViewModel(); }
-        private object Activate_9_Layers() { return new global::ImageLinker2.Layers(); }
-        private object Activate_10_LayersViewModel() { return new global::ImageLinker2.ViewModel.LayersViewModel(); }
-        private object Activate_11_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
-        private object Activate_16_MainWindow() { return new global::ImageLinker2.MainWindow(); }
-        private object Activate_18_ImageLayer() { return new global::ImageLinker2.Models.ImageLayer(); }
-        private object Activate_21_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_5_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
+        private object Activate_10_Binarization() { return new global::ImageLinker2.Binarization(); }
+        private object Activate_13_BaseViewModel() { return new global::ImageLinker2.ViewModel.BaseViewModel(); }
+        private object Activate_14_Curvies() { return new global::ImageLinker2.Curvies(); }
+        private object Activate_16_Layers() { return new global::ImageLinker2.Layers(); }
+        private object Activate_17_LayersViewModel() { return new global::ImageLinker2.ViewModel.LayersViewModel(); }
+        private object Activate_18_MainWindow() { return new global::ImageLinker2.MainWindow(); }
+        private object Activate_20_ImageLayer() { return new global::ImageLinker2.Models.ImageLayer(); }
+        private object Activate_23_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_VisibilityToBooleanConverter() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.VisibilityToBooleanConverter).TypeHandle);
-        private void StaticInitializer_5_Curvies() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Curvies).TypeHandle);
-        private void StaticInitializer_7_CurviesViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.CurviesViewModel).TypeHandle);
-        private void StaticInitializer_8_BaseViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.BaseViewModel).TypeHandle);
-        private void StaticInitializer_9_Layers() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Layers).TypeHandle);
-        private void StaticInitializer_10_LayersViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.LayersViewModel).TypeHandle);
-        private void StaticInitializer_11_RadioButtons() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons).TypeHandle);
-        private void StaticInitializer_13_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::System.Object>).TypeHandle);
-        private void StaticInitializer_16_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.MainWindow).TypeHandle);
-        private void StaticInitializer_18_ImageLayer() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Models.ImageLayer).TypeHandle);
-        private void StaticInitializer_21_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_23_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_5_RadioButtons() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons).TypeHandle);
+        private void StaticInitializer_7_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::System.Object>).TypeHandle);
+        private void StaticInitializer_10_Binarization() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Binarization).TypeHandle);
+        private void StaticInitializer_12_BinarizationViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.BinarizationViewModel).TypeHandle);
+        private void StaticInitializer_13_BaseViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.BaseViewModel).TypeHandle);
+        private void StaticInitializer_14_Curvies() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Curvies).TypeHandle);
+        private void StaticInitializer_15_CurviesViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.CurviesViewModel).TypeHandle);
+        private void StaticInitializer_16_Layers() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Layers).TypeHandle);
+        private void StaticInitializer_17_LayersViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.ViewModel.LayersViewModel).TypeHandle);
+        private void StaticInitializer_18_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.MainWindow).TypeHandle);
+        private void StaticInitializer_20_ImageLayer() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ImageLinker2.Models.ImageLayer).TypeHandle);
+        private void StaticInitializer_23_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_25_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -341,13 +348,13 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_13_IList(object instance, object item)
+        private void VectorAdd_7_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_23_IList(object instance, object item)
+        private void VectorAdd_25_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -393,104 +400,121 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 5:   //  ImageLinker2.Curvies
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_5_Curvies;
-                userType.StaticInitializer = StaticInitializer_5_Curvies;
-                userType.AddMemberName("ViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 6:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 7:   //  ImageLinker2.ViewModel.CurviesViewModel
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("ImageLinker2.ViewModel.BaseViewModel"));
-                userType.StaticInitializer = StaticInitializer_7_CurviesViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 8:   //  ImageLinker2.ViewModel.BaseViewModel
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_8_BaseViewModel;
-                userType.StaticInitializer = StaticInitializer_8_BaseViewModel;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 9:   //  ImageLinker2.Layers
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_9_Layers;
-                userType.StaticInitializer = StaticInitializer_9_Layers;
-                userType.AddMemberName("ViewModel");
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 10:   //  ImageLinker2.ViewModel.LayersViewModel
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("ImageLinker2.ViewModel.BaseViewModel"));
-                userType.StaticInitializer = StaticInitializer_10_LayersViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 11:   //  Microsoft.UI.Xaml.Controls.RadioButtons
+            case 5:   //  Microsoft.UI.Xaml.Controls.RadioButtons
                 userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_11_RadioButtons;
-                userType.StaticInitializer = StaticInitializer_11_RadioButtons;
+                userType.Activator = Activate_5_RadioButtons;
+                userType.StaticInitializer = StaticInitializer_5_RadioButtons;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.RadioButtons.Items");
                 userType.AddMemberName("Items");
                 userType.AddMemberName("SelectedIndex");
-                userType.AddMemberName("MaxColumns");
                 userType.AddMemberName("Header");
                 userType.AddMemberName("HeaderTemplate");
                 userType.AddMemberName("ItemTemplate");
                 userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("MaxColumns");
                 userType.AddMemberName("SelectedItem");
                 xamlType = userType;
                 break;
 
-            case 12:   //  Microsoft.UI.Xaml.Controls.Control
+            case 6:   //  Microsoft.UI.Xaml.Controls.Control
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  System.Collections.Generic.IList`1<Object>
+            case 7:   //  System.Collections.Generic.IList`1<Object>
                 userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_13_IList;
-                userType.CollectionAdd = VectorAdd_13_IList;
+                userType.StaticInitializer = StaticInitializer_7_IList;
+                userType.CollectionAdd = VectorAdd_7_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 14:   //  Int32
+            case 8:   //  Int32
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  Microsoft.UI.Xaml.DataTemplate
+            case 9:   //  Microsoft.UI.Xaml.DataTemplate
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  ImageLinker2.MainWindow
-                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_16_MainWindow;
-                userType.StaticInitializer = StaticInitializer_16_MainWindow;
+            case 10:   //  ImageLinker2.Binarization
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_10_Binarization;
+                userType.StaticInitializer = StaticInitializer_10_Binarization;
+                userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  Microsoft.UI.Xaml.Window
+            case 11:   //  Microsoft.UI.Xaml.Controls.UserControl
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 18:   //  ImageLinker2.Models.ImageLayer
+            case 12:   //  ImageLinker2.ViewModel.BinarizationViewModel
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("ImageLinker2.ViewModel.BaseViewModel"));
+                userType.StaticInitializer = StaticInitializer_12_BinarizationViewModel;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  ImageLinker2.ViewModel.BaseViewModel
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_13_BaseViewModel;
+                userType.StaticInitializer = StaticInitializer_13_BaseViewModel;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  ImageLinker2.Curvies
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_14_Curvies;
+                userType.StaticInitializer = StaticInitializer_14_Curvies;
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  ImageLinker2.ViewModel.CurviesViewModel
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("ImageLinker2.ViewModel.BaseViewModel"));
+                userType.StaticInitializer = StaticInitializer_15_CurviesViewModel;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  ImageLinker2.Layers
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_16_Layers;
+                userType.StaticInitializer = StaticInitializer_16_Layers;
+                userType.AddMemberName("ViewModel");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  ImageLinker2.ViewModel.LayersViewModel
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("ImageLinker2.ViewModel.BaseViewModel"));
+                userType.StaticInitializer = StaticInitializer_17_LayersViewModel;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  ImageLinker2.MainWindow
+                userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType.Activator = Activate_18_MainWindow;
+                userType.StaticInitializer = StaticInitializer_18_MainWindow;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  Microsoft.UI.Xaml.Window
+                xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  ImageLinker2.Models.ImageLayer
                 userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_18_ImageLayer;
-                userType.StaticInitializer = StaticInitializer_18_ImageLayer;
+                userType.Activator = Activate_20_ImageLayer;
+                userType.StaticInitializer = StaticInitializer_20_ImageLayer;
                 userType.AddMemberName("Id");
                 userType.AddMemberName("Text");
                 userType.AddMemberName("Source");
@@ -498,18 +522,18 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 19:   //  String
+            case 21:   //  String
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 20:   //  Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource
+            case 22:   //  Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 23:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_21_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_21_TreeViewNode;
+                userType.Activator = Activate_23_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_23_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -521,14 +545,14 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 22:   //  Microsoft.UI.Xaml.DependencyObject
+            case 24:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 25:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_23_IList;
-                userType.CollectionAdd = VectorAdd_23_IList;
+                userType.StaticInitializer = StaticInitializer_25_IList;
+                userType.CollectionAdd = VectorAdd_25_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
@@ -601,177 +625,187 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.UseCompactResources = (global::System.Boolean)Value;
         }
-        private object get_1_Curvies_ViewModel(object instance)
-        {
-            var that = (global::ImageLinker2.Curvies)instance;
-            return that.ViewModel;
-        }
-        private void set_1_Curvies_ViewModel(object instance, object Value)
-        {
-            var that = (global::ImageLinker2.Curvies)instance;
-            that.ViewModel = (global::ImageLinker2.ViewModel.CurviesViewModel)Value;
-        }
-        private object get_2_Layers_ViewModel(object instance)
-        {
-            var that = (global::ImageLinker2.Layers)instance;
-            return that.ViewModel;
-        }
-        private void set_2_Layers_ViewModel(object instance, object Value)
-        {
-            var that = (global::ImageLinker2.Layers)instance;
-            that.ViewModel = (global::ImageLinker2.ViewModel.LayersViewModel)Value;
-        }
-        private object get_3_RadioButtons_Items(object instance)
+        private object get_1_RadioButtons_Items(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.Items;
         }
-        private object get_4_RadioButtons_SelectedIndex(object instance)
+        private object get_2_RadioButtons_SelectedIndex(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.SelectedIndex;
         }
-        private void set_4_RadioButtons_SelectedIndex(object instance, object Value)
+        private void set_2_RadioButtons_SelectedIndex(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.SelectedIndex = (global::System.Int32)Value;
         }
-        private object get_5_RadioButtons_MaxColumns(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.MaxColumns;
-        }
-        private void set_5_RadioButtons_MaxColumns(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.MaxColumns = (global::System.Int32)Value;
-        }
-        private object get_6_RadioButtons_Header(object instance)
+        private object get_3_RadioButtons_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.Header;
         }
-        private void set_6_RadioButtons_Header(object instance, object Value)
+        private void set_3_RadioButtons_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_7_RadioButtons_HeaderTemplate(object instance)
+        private object get_4_RadioButtons_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.HeaderTemplate;
         }
-        private void set_7_RadioButtons_HeaderTemplate(object instance, object Value)
+        private void set_4_RadioButtons_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_8_RadioButtons_ItemTemplate(object instance)
+        private object get_5_RadioButtons_ItemTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.ItemTemplate;
         }
-        private void set_8_RadioButtons_ItemTemplate(object instance, object Value)
+        private void set_5_RadioButtons_ItemTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.ItemTemplate = (global::System.Object)Value;
         }
-        private object get_9_RadioButtons_ItemsSource(object instance)
+        private object get_6_RadioButtons_ItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.ItemsSource;
         }
-        private void set_9_RadioButtons_ItemsSource(object instance, object Value)
+        private void set_6_RadioButtons_ItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.ItemsSource = (global::System.Object)Value;
         }
-        private object get_10_RadioButtons_SelectedItem(object instance)
+        private object get_7_RadioButtons_MaxColumns(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.MaxColumns;
+        }
+        private void set_7_RadioButtons_MaxColumns(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.MaxColumns = (global::System.Int32)Value;
+        }
+        private object get_8_RadioButtons_SelectedItem(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             return that.SelectedItem;
         }
-        private void set_10_RadioButtons_SelectedItem(object instance, object Value)
+        private void set_8_RadioButtons_SelectedItem(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
             that.SelectedItem = (global::System.Object)Value;
         }
-        private object get_11_ImageLayer_Id(object instance)
+        private object get_9_Binarization_ViewModel(object instance)
+        {
+            var that = (global::ImageLinker2.Binarization)instance;
+            return that.ViewModel;
+        }
+        private void set_9_Binarization_ViewModel(object instance, object Value)
+        {
+            var that = (global::ImageLinker2.Binarization)instance;
+            that.ViewModel = (global::ImageLinker2.ViewModel.BinarizationViewModel)Value;
+        }
+        private object get_10_Curvies_ViewModel(object instance)
+        {
+            var that = (global::ImageLinker2.Curvies)instance;
+            return that.ViewModel;
+        }
+        private void set_10_Curvies_ViewModel(object instance, object Value)
+        {
+            var that = (global::ImageLinker2.Curvies)instance;
+            that.ViewModel = (global::ImageLinker2.ViewModel.CurviesViewModel)Value;
+        }
+        private object get_11_Layers_ViewModel(object instance)
+        {
+            var that = (global::ImageLinker2.Layers)instance;
+            return that.ViewModel;
+        }
+        private void set_11_Layers_ViewModel(object instance, object Value)
+        {
+            var that = (global::ImageLinker2.Layers)instance;
+            that.ViewModel = (global::ImageLinker2.ViewModel.LayersViewModel)Value;
+        }
+        private object get_12_ImageLayer_Id(object instance)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             return that.Id;
         }
-        private void set_11_ImageLayer_Id(object instance, object Value)
+        private void set_12_ImageLayer_Id(object instance, object Value)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             that.Id = (global::System.Int32)Value;
         }
-        private object get_12_ImageLayer_Text(object instance)
+        private object get_13_ImageLayer_Text(object instance)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             return that.Text;
         }
-        private void set_12_ImageLayer_Text(object instance, object Value)
+        private void set_13_ImageLayer_Text(object instance, object Value)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_13_ImageLayer_Source(object instance)
+        private object get_14_ImageLayer_Source(object instance)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             return that.Source;
         }
-        private void set_13_ImageLayer_Source(object instance, object Value)
+        private void set_14_ImageLayer_Source(object instance, object Value)
         {
             var that = (global::ImageLinker2.Models.ImageLayer)instance;
             that.Source = (global::Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource)Value;
         }
-        private object get_14_TreeViewNode_Children(object instance)
+        private object get_15_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_15_TreeViewNode_Content(object instance)
+        private object get_16_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_15_TreeViewNode_Content(object instance, object Value)
+        private void set_16_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_16_TreeViewNode_Depth(object instance)
+        private object get_17_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_17_TreeViewNode_HasChildren(object instance)
+        private object get_18_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_18_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_19_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_18_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_19_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_19_TreeViewNode_IsExpanded(object instance)
+        private object get_20_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_19_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_20_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_20_TreeViewNode_Parent(object instance)
+        private object get_21_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -791,140 +825,147 @@ namespace ImageLinker2.ImageLinker2_XamlTypeInfo
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
-            case "ImageLinker2.Curvies.ViewModel":
-                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Curvies");
-                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ViewModel", "ImageLinker2.ViewModel.CurviesViewModel");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_Curvies_ViewModel;
-                xamlMember.Setter = set_1_Curvies_ViewModel;
-                break;
-            case "ImageLinker2.Layers.ViewModel":
-                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Layers");
-                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ViewModel", "ImageLinker2.ViewModel.LayersViewModel");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_2_Layers_ViewModel;
-                xamlMember.Setter = set_2_Layers_ViewModel;
-                break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.Items":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Items", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_RadioButtons_Items;
+                xamlMember.Getter = get_1_RadioButtons_Items;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedIndex":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "SelectedIndex", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_RadioButtons_SelectedIndex;
-                xamlMember.Setter = set_4_RadioButtons_SelectedIndex;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.MaxColumns":
-                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "MaxColumns", "Int32");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_RadioButtons_MaxColumns;
-                xamlMember.Setter = set_5_RadioButtons_MaxColumns;
+                xamlMember.Getter = get_2_RadioButtons_SelectedIndex;
+                xamlMember.Setter = set_2_RadioButtons_SelectedIndex;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.Header":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_RadioButtons_Header;
-                xamlMember.Setter = set_6_RadioButtons_Header;
+                xamlMember.Getter = get_3_RadioButtons_Header;
+                xamlMember.Setter = set_3_RadioButtons_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.HeaderTemplate":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_RadioButtons_HeaderTemplate;
-                xamlMember.Setter = set_7_RadioButtons_HeaderTemplate;
+                xamlMember.Getter = get_4_RadioButtons_HeaderTemplate;
+                xamlMember.Setter = set_4_RadioButtons_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemTemplate":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_8_RadioButtons_ItemTemplate;
-                xamlMember.Setter = set_8_RadioButtons_ItemTemplate;
+                xamlMember.Getter = get_5_RadioButtons_ItemTemplate;
+                xamlMember.Setter = set_5_RadioButtons_ItemTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemsSource":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_RadioButtons_ItemsSource;
-                xamlMember.Setter = set_9_RadioButtons_ItemsSource;
+                xamlMember.Getter = get_6_RadioButtons_ItemsSource;
+                xamlMember.Setter = set_6_RadioButtons_ItemsSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.MaxColumns":
+                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "MaxColumns", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_RadioButtons_MaxColumns;
+                xamlMember.Setter = set_7_RadioButtons_MaxColumns;
                 break;
             case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedItem":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_10_RadioButtons_SelectedItem;
-                xamlMember.Setter = set_10_RadioButtons_SelectedItem;
+                xamlMember.Getter = get_8_RadioButtons_SelectedItem;
+                xamlMember.Setter = set_8_RadioButtons_SelectedItem;
+                break;
+            case "ImageLinker2.Binarization.ViewModel":
+                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Binarization");
+                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ViewModel", "ImageLinker2.ViewModel.BinarizationViewModel");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_Binarization_ViewModel;
+                xamlMember.Setter = set_9_Binarization_ViewModel;
+                break;
+            case "ImageLinker2.Curvies.ViewModel":
+                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Curvies");
+                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ViewModel", "ImageLinker2.ViewModel.CurviesViewModel");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_Curvies_ViewModel;
+                xamlMember.Setter = set_10_Curvies_ViewModel;
+                break;
+            case "ImageLinker2.Layers.ViewModel":
+                userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Layers");
+                xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "ViewModel", "ImageLinker2.ViewModel.LayersViewModel");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_Layers_ViewModel;
+                xamlMember.Setter = set_11_Layers_ViewModel;
                 break;
             case "ImageLinker2.Models.ImageLayer.Id":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Models.ImageLayer");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Id", "Int32");
-                xamlMember.Getter = get_11_ImageLayer_Id;
-                xamlMember.Setter = set_11_ImageLayer_Id;
+                xamlMember.Getter = get_12_ImageLayer_Id;
+                xamlMember.Setter = set_12_ImageLayer_Id;
                 break;
             case "ImageLinker2.Models.ImageLayer.Text":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Models.ImageLayer");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_ImageLayer_Text;
-                xamlMember.Setter = set_12_ImageLayer_Text;
+                xamlMember.Getter = get_13_ImageLayer_Text;
+                xamlMember.Setter = set_13_ImageLayer_Text;
                 break;
             case "ImageLinker2.Models.ImageLayer.Source":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ImageLinker2.Models.ImageLayer");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Source", "Microsoft.UI.Xaml.Media.Imaging.SoftwareBitmapSource");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_ImageLayer_Source;
-                xamlMember.Setter = set_13_ImageLayer_Source;
+                xamlMember.Getter = get_14_ImageLayer_Source;
+                xamlMember.Setter = set_14_ImageLayer_Source;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_14_TreeViewNode_Children;
+                xamlMember.Getter = get_15_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_TreeViewNode_Content;
-                xamlMember.Setter = set_15_TreeViewNode_Content;
+                xamlMember.Getter = get_16_TreeViewNode_Content;
+                xamlMember.Setter = set_16_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_TreeViewNode_Depth;
+                xamlMember.Getter = get_17_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_18_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_18_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_18_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_19_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_19_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_19_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_20_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_20_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ImageLinker2.ImageLinker2_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_20_TreeViewNode_Parent;
+                xamlMember.Getter = get_21_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

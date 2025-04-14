@@ -1,10 +1,7 @@
 ﻿using ImageLinker2.Models;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml.Media.Imaging;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using Windows.Graphics.Imaging;
 
 
 namespace ImageLinker2.ViewModel
@@ -45,8 +42,33 @@ namespace ImageLinker2.ViewModel
 
         public async void Render(WriteableBitmap? ViewReference, Dictionary<int, int> map)
         {
-            View = await ViewPort.UpdateViewPort(ViewReference, map);
+            View = await ViewPort.UpdateViewPort(ViewReference, map).ConfigureAwait(true);
         }
         
+
+        //public async void Render(WriteableBitmap? ViewReference, Mode _mode)
+        //{
+        //    switch (_mode)
+        //    {
+        //        case Mode.Gavr:
+        //            View = await ViewPort.UpdateViewPortGavr(ViewReference);
+        //            break;
+        //        case Mode.Otsu:
+        //            View = await ViewPort.UpdateViewPortOtsu(ViewReference);
+        //            break;
+        //        case Mode.Sauv:
+        //            View = await ViewPort.UpdateViewPortSauv(ViewReference);
+        //            break;
+        //        case Mode.Nibl:
+        //            View = await ViewPort.UpdateViewPortNibl(ViewReference);
+        //            break;
+        //        case Mode.Wulf:
+        //            View = await ViewPort.UpdateViewPortWulf(ViewReference);
+        //            break;
+        //        case Mode.Rot:
+        //            View = await ViewPort.UpdateViewPortRot(ViewReference);
+        //            break;
+        //    }
+        //}
     }
 }

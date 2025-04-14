@@ -9,6 +9,16 @@ namespace ImageLinker2.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        public enum Mode
+        {
+            Gavr,
+            Otsu,
+            Nibl,
+            Sauv,
+            Wulf,
+            Rot
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName = null)

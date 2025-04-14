@@ -177,3 +177,8 @@ C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.
 C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Curvies.g.cs
 C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Curvies.xaml
 C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Curvies.xbf
+C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Binarization.g.i.cs
+C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Binarization.g.cs
+C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Binarization.xaml
+C:\Users\dikij\Документы\study fuck\сцои\pslite\obj\x64\Debug\net8.0-windows10.0.19041.0\Binarization.xbf
+C:\Users\dikij\Документы\study fuck\сцои\pslite\bin\x64\Debug\net8.0-windows10.0.19041.0\Binarization.xbf

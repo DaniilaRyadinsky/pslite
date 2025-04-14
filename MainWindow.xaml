@@ -29,13 +29,14 @@
             <RadioButtons SelectedIndex="0" MaxColumns="5" SelectionChanged="{x:Bind _viewModel.RightPanel_SelectionChanged}">
                 <x:String>Слои</x:String>
                 <x:String>Кривые</x:String>
-                <x:String>Чтото там</x:String>
+                <x:String>Бинаризация</x:String>
             </RadioButtons>
         </StackPanel>
 
         <RelativePanel x:Name="RightPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
             <local:Layers x:Name="LayersControl" ViewModel="{x:Bind _viewModel.LayersVM, Mode=OneWay}"/>
             <local:Curvies x:Name="CurviesControl" ViewModel="{x:Bind _viewModel.CurviesVM, Mode=OneWay}"/>
+            <local:Binarization x:Name="BinarizationControl" ViewModel="{x:Bind _viewModel.BinarizationVM, Mode=OneWay}"/>
         </RelativePanel>
 
 

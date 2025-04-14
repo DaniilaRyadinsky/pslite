@@ -171,8 +171,8 @@ namespace ImageLinker2.Models
 
                         resultPixels[index] = (byte)(map[pixels[index]]);
                         resultPixels[index + 1] = (byte)(map[pixels[index + 1]]);
-                        resultPixels[index + 2] = (byte)(map[pixels[index + 2]]); // R
-                        resultPixels[index + 3] = 255; // Alpha (оставляем непрозрачным)
+                        resultPixels[index + 2] = (byte)(map[pixels[index + 2]]);
+                        resultPixels[index + 3] = 255;
                     }
                 });
 
@@ -201,5 +201,6 @@ namespace ImageLinker2.Models
             int index = (y * width + x) * 4 + channel;
             return pixels[index];
         }
+
     }
 }

@@ -22,20 +22,21 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment='Center' Margin="20, 20, 20, 20">
-            <Image x:ConnectionId='8' x:Name="pictureBox1"                                                          />
+            <Image x:ConnectionId='9' x:Name="pictureBox1"                                                          />
         </StackPanel>
 
         <StackPanel  Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment='Top' Margin="15">
-            <RadioButtons x:ConnectionId='7' SelectedIndex="0" MaxColumns="5"                                                                   >
+            <RadioButtons x:ConnectionId='8' SelectedIndex="0" MaxColumns="5"                                                                   >
                 <x:String>Слои</x:String>
                 <x:String>Кривые</x:String>
-                <x:String>Чтото там</x:String>
+                <x:String>Бинаризация</x:String>
             </RadioButtons>
         </StackPanel>
 
         <RelativePanel x:ConnectionId='2' x:Name="RightPanel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
             <local:Layers x:ConnectionId='5' x:Name="LayersControl"                                                      />
             <local:Curvies x:ConnectionId='6' x:Name="CurviesControl"                                                       />
+            <local:Binarization x:ConnectionId='7' x:Name="BinarizationControl"                                                            />
         </RelativePanel>
 
 

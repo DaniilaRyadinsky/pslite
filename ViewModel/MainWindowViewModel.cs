@@ -2,7 +2,6 @@
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml;
 using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage.Pickers;
@@ -17,6 +16,7 @@ namespace ImageLinker2.ViewModel
         public LayersViewModel LayersVM;
         public ViewPortViewModel ViewPortVM;
         public CurviesViewModel CurviesVM;
+        public BinarizationViewModel BinarizationVM;
 
         private string? _text;
         public string? Text
@@ -35,6 +35,7 @@ namespace ImageLinker2.ViewModel
             LayersVM = new();
             ViewPortVM = new ViewPortViewModel();
             CurviesVM = new CurviesViewModel(ViewPortVM);
+            BinarizationVM = new BinarizationViewModel(ViewPortVM);
         }
 
         public async void PickAFileButton_Click(object sender, RoutedEventArgs e)
@@ -78,7 +79,6 @@ namespace ImageLinker2.ViewModel
                 Text = "Operation cancelled.";
             }
 
-            //re-enable the button
             senderButton.IsEnabled = true;
         }
 
@@ -99,10 +99,17 @@ namespace ImageLinker2.ViewModel
         {
             ViewPortVM.Render(LayersVM);
 
-
             if (ViewPortVM.View != null)
+            {
                 CurviesVM.ViewReference = CopyWriteableBitmap(ViewPortVM.View);
-            else CurviesVM.ViewReference = null;
+                BinarizationVM.SetReference(CurviesVM.ViewReference);
+            }
+            else
+            {
+                CurviesVM.ViewReference = null;
+                BinarizationVM.SetReference(null);
+            }
+            
         }
 
         public void Delete(object sender, ImageLayer imageLayer)
@@ -128,16 +135,20 @@ namespace ImageLinker2.ViewModel
                     case "Слои":
                         LayersVM.Visibility = Visibility.Visible;
                         CurviesVM.Visibility = Visibility.Collapsed;
+                        BinarizationVM.Visibility = Visibility.Collapsed;
                         Render();
                         break;
                     case "Кривые":
                         LayersVM.Visibility = Visibility.Collapsed;
                         CurviesVM.Visibility = Visibility.Visible;
+                        BinarizationVM.Visibility = Visibility.Collapsed;
                         CurviesVM.RenderViewPort();
                         break;
-                    case "Чтото там":
+                    case "Бинаризация":
                         LayersVM.Visibility = Visibility.Collapsed;
                         CurviesVM.Visibility = Visibility.Collapsed;
+                        BinarizationVM.Visibility = Visibility.Visible;
+                        ViewPortVM.View = BinarizationVM.ViewReference;
                         break;
                 }
             }
